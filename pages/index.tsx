@@ -1,16 +1,15 @@
+import { Box } from '@chakra-ui/react'
+import Head from 'next/head'
 import React from 'react'
-import { Box, Button, Text } from '@chakra-ui/react';
-import Head from 'next/head';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <Box>
       <Head>
         <title>Home</title>
       </Head>
-
-      <Text>Home page</Text>
-      <Button>Click Me</Button>
     </Box>
-  );
+  )
 }
+
+export default Home

@@ -6,7 +6,8 @@ const styles = {
     body: {
       bg: '#fff',
       color: '#000',
-      fontSize: '1.4rem'
+      fontSize: '1.4rem',
+      fontFamily: 'IBM Plex Sans, sans-serif'
     },
     a: {
       color: 'teal.500',
@@ -15,6 +16,6 @@ const styles = {
       }
     }
   }
-};
+}
 
-export default styles;
+export default styles

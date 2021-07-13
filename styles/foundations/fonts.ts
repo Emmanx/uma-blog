@@ -2,7 +2,7 @@ export const fonts = {
   body: 'system-ui, sans-serif',
   heading: 'Georgia, serif',
   mono: 'Menlo, monospace'
-};
+}
 
 export const fontSizes = {
   xs: '0.75rem',
@@ -18,7 +18,7 @@ export const fontSizes = {
   '7xl': '4.5rem',
   '8xl': '6rem',
   '9xl': '8rem'
-};
+}
 
 export const fontWeights = {
   hairline: 100,
@@ -30,7 +30,7 @@ export const fontWeights = {
   bold: 700,
   extrabold: 800,
   black: 900
-};
+}
 
 export const lineHeights = {
   normal: 'normal',
@@ -48,4 +48,4 @@ export const lineHeights = {
   8: '2rem',
   9: '2.25rem',
   10: '2.5rem'
-};
+}
