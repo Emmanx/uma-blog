@@ -1,9 +1,10 @@
 import '../styles/index.css'
 
+import { Footer, Header } from '../components/layout'
+
 import { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import Head from 'next/head'
-import { Header } from '../components/layout'
 import React from 'react'
 import theme from '../styles'
 
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   )
 }

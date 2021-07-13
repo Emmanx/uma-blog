@@ -1,1 +1,6 @@
 export * from './Header'
+export * from './PageTitle'
+export * from './ContentWrapper'
+export * from './PostCard'
+export * from './PostCardWide'
+export * from './Footer'

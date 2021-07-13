@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Halyard Display Book';
+  src: url(/fonts/34661.otf);
+}
+
+@font-face {
+  font-family: 'Halyard Display Regular';
+  src: url(/fonts/34664.otf);
+}
+
+@font-face {
+  font-family: 'Halyard Display Medium';
+  src: url(/fonts/34666.otf);
+}
+
+@font-face {
+  font-family: 'Halyard Display SemiBold';
+  src: url(/fonts/34668.otf);
+}
