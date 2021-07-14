@@ -1,10 +1,19 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { ContentWrapper, PageTitle, PostCard, PostCardWide } from '../components/layout'
 
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
+import { TPost } from '../types/post'
+import { getPosts } from '../queries/post'
 
-const Home: React.FC = () => {
+type Props = {
+  posts: TPost[]
+}
+
+const Home = ({ posts }: Props) => {
+  console.log(posts)
+
   return (
     <Box>
       <Head>
@@ -14,8 +23,10 @@ const Home: React.FC = () => {
       <PageTitle />
       <ContentWrapper>
         <PostCardWide />
-        <Flex mt="7rem">
-          <PostCard />
+        <Flex mt="7rem" wrap="wrap" justify="space-between">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
         </Flex>
       </ContentWrapper>
     </Box>
@@ -23,3 +34,17 @@ const Home: React.FC = () => {
 }
 
 export default Home
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPosts()
+
+  if (!posts) {
+    return {
+      notFound: true
+    }
+  }
+
+  return {
+    props: { posts }
+  }
+}

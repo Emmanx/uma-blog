@@ -1,11 +1,16 @@
 import { Box, HStack, Heading, Image, Text } from '@chakra-ui/react'
 
 import React from 'react'
+import { TPost } from '../../types/post'
 
-export const PostCard: React.FC = () => {
+type Props = {
+  post: TPost
+}
+
+export const PostCard = ({ post }: Props) => {
   return (
-    <Box w={{ base: '100%', md: '50%' }}>
-      <Image w="100%" borderRadius="1rem" src="/images/blog1.png" />
+    <Box w={{ base: '100%', md: '48%' }} mb="7rem">
+      <Image w="100%" borderRadius="1rem" src={post.feature_image} />
       <Box w="100%" mt="2rem">
         <Text textTransform="uppercase" color="brand.red" fontSize="1.6rem">
           Community
