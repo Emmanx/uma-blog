@@ -12,6 +12,7 @@ import {
 
 import { Menu } from './Menu'
 import { MobileMenu } from './MobileMenu'
+import NextLink from 'next/link'
 import React from 'react'
 import { Social } from './Social'
 
@@ -22,7 +23,9 @@ export const Header: React.FC = () => {
     <Box>
       <Container>
         <Flex justify="space-between" align="center" py="5rem">
-          <Image w={{ base: '8rem', lg: '10.3rem' }} src="/images/logo.svg" />
+          <NextLink href="/">
+            <Image w={{ base: '8rem', lg: '10.3rem' }} src="/images/logo.svg" />
+          </NextLink>
           <Social />
           <Button borderRadius="3.5rem" variant="outline" display={{ base: 'none', lg: 'flex' }}>
             UMAverse

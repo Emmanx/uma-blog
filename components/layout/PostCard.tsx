@@ -1,5 +1,6 @@
 import { Box, HStack, Heading, Image, Text } from '@chakra-ui/react'
 
+import NextLink from 'next/link'
 import React from 'react'
 import { TPost } from '../../types/post'
 
@@ -15,9 +16,11 @@ export const PostCard = ({ post }: Props) => {
         <Text textTransform="uppercase" color="brand.red" fontSize="1.6rem">
           Community
         </Text>
-        <Heading as="h3" fontSize="2.4rem" fontWeight="400" mt="5px" lineHeight="3.6rem">
-          {post.title}
-        </Heading>
+        <NextLink href="/post">
+          <Heading as="h3" fontSize="2.4rem" fontWeight="400" mt="5px" lineHeight="3.6rem">
+            {post.title}
+          </Heading>
+        </NextLink>
         <Text fontSize="1.6rem" color="#425466" mt="1.2rem">
           {post.excerpt}
         </Text>
