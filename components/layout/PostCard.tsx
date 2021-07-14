@@ -16,12 +16,10 @@ export const PostCard = ({ post }: Props) => {
           Community
         </Text>
         <Heading as="h3" fontSize="2.4rem" fontWeight="400" mt="5px" lineHeight="3.6rem">
-          Page Title
+          {post.title}
         </Heading>
         <Text fontSize="1.6rem" color="#425466" mt="1.2rem">
-          Introducing Fluffy - an ultra-light client for Ethereum What we are talking about building
-          here is the perfect client for a wallet. An ultra-light client that contributes to the
-          network and does not require syncing.
+          {post.excerpt}
         </Text>
         <HStack mt="2rem" align="center">
           <Image w="4.5rem" h="4.5rem" borderRadius="50%" src="/images/author.png" mr="1.5rem" />
