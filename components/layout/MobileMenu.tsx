@@ -1,14 +1,15 @@
 import { Box, Flex, HStack, Image, Input, Link, VStack } from '@chakra-ui/react'
 
 import NextLink from 'next/link'
-import { ROUTES } from '../../config/routes'
 import React from 'react'
+import { TNavigation } from '../../types/layout'
 
 type Props = {
   close: () => void
+  navigation: TNavigation[]
 }
 
-export const MobileMenu: (props: Props) => JSX.Element = ({ close }) => {
+export const MobileMenu = ({ close, navigation }: Props) => {
   return (
     <Box w="100%" h="100vh" pos="fixed" top="0" left="0" bg="#fff" px="3rem" py="5rem">
       <Flex justify="flex-end">
@@ -28,9 +29,12 @@ export const MobileMenu: (props: Props) => JSX.Element = ({ close }) => {
         />
       </HStack>
       <VStack spacing="3rem" align="flex-start" mt="4.5rem">
-        {ROUTES.map((route, i) => (
-          <NextLink href={route.path} key={i}>
-            <Link fontSize="1.4rem">{route.name}</Link>
+        {navigation.map((route, i) => (
+          <NextLink href={route.url} key={i}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <Link onClick={close} fontSize="1.4rem">
+              {route.label}
+            </Link>
           </NextLink>
         ))}
       </VStack>

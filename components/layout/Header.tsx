@@ -43,7 +43,7 @@ export const Header = ({ navigation }: Props) => {
             src="/icons/ham.svg"
             onClick={setMobileMenu.on}
           />
-          {mobileMenu && <MobileMenu close={setMobileMenu.off} />}
+          {mobileMenu && <MobileMenu navigation={navigation} close={setMobileMenu.off} />}
         </Flex>
       </Container>
       <Box
