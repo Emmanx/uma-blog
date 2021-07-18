@@ -1,8 +1,11 @@
-import { Box, Container, Flex, HStack, Heading, Image, Text } from '@chakra-ui/react'
+import { Box, Container, Flex, HStack, Heading, Icon, Image, Text } from '@chakra-ui/react'
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { Footer, Header, PostCard } from '../../components/layout'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { TiSocialFacebook, TiSocialLinkedin, TiSocialTwitter } from 'react-icons/ti'
 import { getPost, getPosts } from '../../queries/post'
 
+import { IconType } from 'react-icons'
 import React from 'react'
 import { TNavigation } from '../../types/layout'
 import { TPost } from '../../types/post'
@@ -56,7 +59,7 @@ const post = ({ post, navigation, relatedArticles }: Props) => {
           my="5rem"
         />
         <Container maxW="82rem" mb="15rem">
-          <HTMLWrapper>{parse(post.html)}</HTMLWrapper>
+          <HTMLWrapper px="2rem">{parse(post.html)}</HTMLWrapper>
 
           <Box w="100%" h="1px" bg="#EDF2F7" my="4rem" />
 
@@ -75,10 +78,24 @@ const post = ({ post, navigation, relatedArticles }: Props) => {
             </HStack>
             <HStack spacing="2.2rem" mt={{ base: '4.5rem', md: '0' }}>
               <Text fontSize="1.6rem">Share:</Text>
-              <HStack spacing="2rem">
-                <IconBox icon="/icons/youtube-white.svg" />
-                <IconBox icon="/icons/discord-white.svg" />
-                <IconBox icon="/icons/discord-white.svg" />
+              <HStack spacing="1rem" mt="0rem">
+                <FacebookShareButton
+                  url={`https://blog.umaproject.org/post/${post.slug}`}
+                  quote="I just read an awesome article at the UMA blog">
+                  <IconBox icon={TiSocialFacebook} />
+                </FacebookShareButton>
+                <LinkedinShareButton
+                  url={`https://blog.umaproject.org/post/${post.slug}`}
+                  title={post.title}
+                  summary={post.excerpt}
+                  source="UMA Blog">
+                  <IconBox icon={TiSocialLinkedin} />
+                </LinkedinShareButton>
+                <TwitterShareButton
+                  url={`https://blog.umaproject.org/post/${post.slug}`}
+                  title="I just read an awesome article at the UMA blog">
+                  <IconBox icon={TiSocialTwitter} />
+                </TwitterShareButton>
               </HStack>
             </HStack>
           </Flex>
@@ -138,14 +155,10 @@ const HTMLWrapper = styled(Box)`
   }
 `
 
-type IconBoxProps = {
-  icon: string
-}
-
-const IconBox = ({ icon }: IconBoxProps) => {
+const IconBox = ({ icon }: { icon: IconType }) => {
   return (
     <Flex justify="center" align="center" w="5rem" h="5rem" bg="#000" borderRadius="50%">
-      <Image src={icon} />
+      <Icon fontSize="3rem" color="#fff" as={icon} />
     </Flex>
   )
 }
