@@ -33,10 +33,37 @@ export const Button = {
       borderWidth: '1px',
       borderColor: 'brand.red',
       _hover: {
+        bg: 'brand.red',
+        color: '#fff',
+
         _disabled: {
           bg: 'brand.red',
           color: '#fff'
         }
+      }
+    },
+    outlineBlack: {
+      bg: '#fff',
+      color: '#000',
+      borderWidth: '1px',
+      borderColor: '#000',
+      _hover: {
+        bg: '#000',
+        color: '#fff',
+
+        _disabled: {
+          bg: '#000',
+          color: '#fff',
+
+          _active: {
+            bg: '#fff',
+            color: '#000'
+          }
+        }
+      },
+      _active: {
+        bg: '#fff',
+        color: '#000'
       }
     }
   }

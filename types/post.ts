@@ -38,3 +38,12 @@ export type TAuthor = {
   location: string
   facebook: string
 }
+
+export type TPagination = {
+  page: number
+  limit: number
+  pages: number
+  total: number
+  next: number | null
+  prev: number | null
+}

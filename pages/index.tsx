@@ -1,23 +1,38 @@
-import { Box, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Heading, Text } from '@chakra-ui/react'
 import { ContentWrapper, Footer, Header, PostCard, PostCardWide } from '../components/layout'
+import { TPagination, TPost } from '../types/post'
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { TNavigation } from '../types/layout'
-import { TPost } from '../types/post'
 import { getNavigation } from '../queries/layout'
 import { getPosts } from '../queries/post'
+import { usePagination } from '../hooks/usePagination'
 
 type Props = {
   posts: TPost[]
   navigation: TNavigation[]
+  pagination: TPagination
 }
 
-const Home = ({ posts, navigation }: Props) => {
-  const firstPost = posts[0]
-  const secondRow = posts.slice(1, 3)
-  const thirdRow = posts.slice(3)
+const Home = ({ posts, navigation, pagination }: Props) => {
+  const {
+    data,
+    loading,
+    pages,
+    page,
+    hasNextPage,
+    hasPrevPage,
+    goToNextPage,
+    goToPrevPage
+  } = usePagination(posts, pagination)
+
+  console.log(data)
+
+  const firstPost = data[0]
+  const secondRow = data.slice(1, 3)
+  const thirdRow = data.slice(3)
 
   return (
     <Box>
@@ -54,6 +69,25 @@ const Home = ({ posts, navigation }: Props) => {
             <PostCard key={post.id} post={post} width="31%" />
           ))}
         </Flex>
+        <HStack spacing="2rem" justify="center">
+          <Button
+            borderRadius="3.5rem"
+            variant="outlineBlack"
+            isDisabled={!hasPrevPage || loading}
+            onClick={goToPrevPage}>
+            Previous
+          </Button>
+          <Text fontSize="1.6rem" fontWeight="600">
+            {page}/{pages}
+          </Text>
+          <Button
+            borderRadius="3.5rem"
+            variant="outlineBlack"
+            isDisabled={!hasNextPage || loading}
+            onClick={goToNextPage}>
+            Next
+          </Button>
+        </HStack>
       </ContentWrapper>
       <Footer />
     </Box>
@@ -63,16 +97,16 @@ const Home = ({ posts, navigation }: Props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPosts()
+  const data = await getPosts(1)
   const navigation = await getNavigation()
 
-  if (!posts || !navigation) {
+  if (!data?.posts || !navigation) {
     return {
       notFound: true
     }
   }
 
   return {
-    props: { posts, navigation }
+    props: { posts: data.posts, pagination: data.meta.pagination, navigation }
   }
 }

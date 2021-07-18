@@ -1,7 +1,8 @@
 const styles = {
   global: {
     html: {
-      fontSize: '62.5%'
+      fontSize: '62.5%',
+      scrollBehavior: 'smooth'
     },
     body: {
       bg: '#fff',

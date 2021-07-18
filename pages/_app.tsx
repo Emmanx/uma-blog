@@ -4,6 +4,7 @@ import { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import Head from 'next/head'
 import React from 'react'
+import { ToastContainer } from 'react-toast'
 import theme from '../styles'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         />
       </Head>
 
+      <ToastContainer delay={5000} position="top-right" />
       <Component {...pageProps} />
     </ChakraProvider>
   )
