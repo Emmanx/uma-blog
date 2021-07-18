@@ -15,8 +15,13 @@ import { MobileMenu } from './MobileMenu'
 import NextLink from 'next/link'
 import React from 'react'
 import { Social } from './Social'
+import { TNavigation } from '../../types/layout'
 
-export const Header: React.FC = () => {
+type Props = {
+  navigation: TNavigation[]
+}
+
+export const Header = ({ navigation }: Props) => {
   const [mobileMenu, setMobileMenu] = useBoolean()
 
   return (
@@ -53,7 +58,7 @@ export const Header: React.FC = () => {
               </Text>
               <Image src="/icons/chevron-right.svg" />
             </HStack>
-            <Menu />
+            <Menu navigation={navigation} />
             <HStack spacing="2rem">
               <Image w="2rem" src="/icons/search.svg" />
               <Input
