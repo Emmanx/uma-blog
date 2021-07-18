@@ -14,15 +14,15 @@ import {
   Text,
   VStack
 } from '@chakra-ui/react'
+import { FOOTER_COLS, SOCIALS } from '../../config/routes'
 
-import { FOOTER_COLS } from '../../config/routes'
 import NextLink from 'next/link'
 import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
     <Box w="100%" bg="#000" py="5.5rem" mt="7rem">
-      <Container>
+      <Container maxW="120rem">
         <DesktopFooter />
         <MobileFooter />
         <Flex justify="center" mt="8.5rem">
@@ -32,11 +32,11 @@ export const Footer: React.FC = () => {
               © 2020 UMA Protocol. All rights reserved.
             </Text>
             <HStack mt="1rem" spacing="3.2rem" justify="center">
-              <Image src="/icons/discord-white.svg" w="2.5rem" />
-              <Image src="/icons/twitter-white.svg" w="2.5rem" />
-              <Image src="/icons/discuss-white.svg" w="2.5rem" />
-              <Image src="/icons/github-white.svg" w="2.5rem" />
-              <Image src="/icons/youtube-white.svg" w="2.5rem" />
+              {SOCIALS.map((item, i) => (
+                <a target="blank" key={i} href={item.url}>
+                  <Image w="2.5rem" src={`/icons/${item.icon}-white.svg`} />
+                </a>
+              ))}
             </HStack>
           </Box>
         </Flex>
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
 
 const DesktopFooter = () => {
   return (
-    <Flex justify="center" wrap="wrap" display={{ base: 'none', lg: 'flex' }}>
+    <Flex w="100%" justify="center" wrap="wrap" display={{ base: 'none', lg: 'flex' }}>
       {FOOTER_COLS.map((item, i) => (
         <FooterCol heading={item.heading} links={item.links} key={i} />
       ))}
@@ -57,7 +57,7 @@ const DesktopFooter = () => {
 
 type FooterColProps = {
   heading: string
-  links: string[]
+  links: { title: string; url: string }[]
 }
 
 const FooterCol: (props: FooterColProps) => JSX.Element = ({ heading, links }) => {
@@ -66,8 +66,10 @@ const FooterCol: (props: FooterColProps) => JSX.Element = ({ heading, links }) =
       <Heading fontSize="1.8rem">{heading}</Heading>
       <VStack mt="4rem" align="flex-start" spacing="2rem">
         {links.map((item, i) => (
-          <NextLink href={item} key={i}>
-            <Link opacity="0.75">{item}</Link>
+          <NextLink href={item.url} key={i}>
+            <Link fontSize="1.3rem" opacity="0.75">
+              {item.title}
+            </Link>
           </NextLink>
         ))}
       </VStack>
@@ -92,8 +94,8 @@ const MobileFooter = () => {
             <AccordionPanel pb={4}>
               <VStack spacing="2rem" align="flex-start">
                 {item.links.map((link, i) => (
-                  <NextLink href={link} key={i}>
-                    <Link opacity="0.75">{link}</Link>
+                  <NextLink href={link.url} key={i}>
+                    <Link opacity="0.75">{link.title}</Link>
                   </NextLink>
                 ))}
               </VStack>

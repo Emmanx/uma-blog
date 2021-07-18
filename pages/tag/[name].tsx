@@ -1,12 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react'
-import {
-  ContentWrapper,
-  Footer,
-  Header,
-  PageTitle,
-  PostCard,
-  PostCardWide
-} from '../../components/layout'
+import { ContentWrapper, Footer, Header, PageTitle, PostCard } from '../../components/layout'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TPost, TTag } from '../../types/post'
 import { getPosts, getTag, getTags } from '../../queries/post'
@@ -68,7 +61,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const tags = (await getTags()) as TTag[]
 
   const paths = tags.map((tag: TTag) => ({
-    params: { name: tag.name }
+    params: { name: tag.slug }
   }))
 
   return { paths, fallback: 'blocking' }

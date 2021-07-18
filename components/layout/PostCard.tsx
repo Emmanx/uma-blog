@@ -26,9 +26,9 @@ export const PostCard = ({ post, width }: Props) => {
             {post.primary_tag?.name}
           </Text>
         </Flex>
-        <NextLink href="/post">
+        <NextLink href={`/post/${post.slug}`}>
           <Heading
-            as="h3"
+            as="a"
             fontSize="2.4rem"
             fontWeight="bold"
             mt="5px"

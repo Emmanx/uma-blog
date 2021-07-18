@@ -29,7 +29,9 @@ export const Header = ({ navigation }: Props) => {
       <Container>
         <Flex justify="space-between" align="center" py="5rem">
           <NextLink href="/">
-            <Image w={{ base: '8rem', lg: '10.3rem' }} src="/images/logo.svg" />
+            <a>
+              <Image w={{ base: '8rem', lg: '10.3rem' }} src="/images/logo.svg" />
+            </a>
           </NextLink>
           <Social />
           <Button borderRadius="3.5rem" variant="outline" display={{ base: 'none', lg: 'flex' }}>

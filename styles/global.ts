@@ -10,9 +10,9 @@ const styles = {
       fontFamily: 'IBM Plex Sans, sans-serif'
     },
     a: {
-      color: 'teal.500',
+      cursor: 'pointer',
       _hover: {
-        textDecoration: 'underline'
+        textDecoration: 'none'
       }
     }
   }

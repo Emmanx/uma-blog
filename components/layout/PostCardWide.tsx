@@ -29,7 +29,7 @@ export const PostCardWide = ({ post }: Props) => {
           fontWeight="600">
           {post.primary_tag?.name}
         </Text>
-        <NextLink href="/post">
+        <NextLink href={`/post/${post.slug}`}>
           <Heading
             as="h3"
             fontSize="2.4rem"
