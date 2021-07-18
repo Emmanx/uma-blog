@@ -12,7 +12,7 @@ type Props = {
 
 export const PostCard = ({ post, width }: Props) => {
   return (
-    <Box w={{ base: '100%', md: '48%', lg: width || '48%' }} mb="7rem">
+    <Box w={{ base: '100%', md: '50%', lg: width || '50%' }} mb="7rem" px="1.1rem">
       <Image w="100%" borderRadius="1rem" src={post.feature_image} />
       <Box w="100%" mt="2rem">
         <Flex>

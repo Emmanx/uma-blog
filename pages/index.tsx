@@ -64,7 +64,7 @@ const Home = ({ posts, navigation, pagination }: Props) => {
         </Flex>
         <Flex mt="7rem" wrap="wrap" justify="space-between">
           {thirdRow.map((post) => (
-            <PostCard key={post.id} post={post} width="31%" />
+            <PostCard key={post.id} post={post} width="33%" />
           ))}
         </Flex>
         <HStack spacing="2rem" justify="center">

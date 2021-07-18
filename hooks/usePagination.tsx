@@ -40,6 +40,7 @@ export const usePagination = (initialPosts: TPost[], initialPageData: TPaginatio
 
   return {
     data: posts,
+    setPosts,
     page: pagination.page,
     pages: pagination.pages,
     goToNextPage,

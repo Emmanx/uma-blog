@@ -1,11 +1,11 @@
 import { Box, Button, Flex, HStack, Text } from '@chakra-ui/react'
 import { ContentWrapper, Footer, Header, PageTitle, PostCard } from '../../components/layout'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import React, { useEffect } from 'react'
 import { TPagination, TPost, TTag } from '../../types/post'
 import { getPosts, getTag, getTags } from '../../queries/post'
 
 import Head from 'next/head'
-import React from 'react'
 import { TNavigation } from '../../types/layout'
 import { getNavigation } from '../../queries/layout'
 import { usePagination } from '../../hooks/usePagination'
@@ -20,6 +20,7 @@ type Props = {
 const Home = ({ tag, posts, navigation, pagination }: Props) => {
   const {
     data,
+    setPosts,
     loading,
     pages,
     page,
@@ -28,6 +29,10 @@ const Home = ({ tag, posts, navigation, pagination }: Props) => {
     goToNextPage,
     goToPrevPage
   } = usePagination(posts, pagination)
+
+  useEffect(() => {
+    setPosts(posts)
+  }, [posts])
 
   return (
     <Box>
@@ -40,9 +45,9 @@ const Home = ({ tag, posts, navigation, pagination }: Props) => {
       <PageTitle title={tag.name} description={tag.description} />
 
       <ContentWrapper>
-        <Flex mt="7rem" wrap="wrap" justify="space-between">
+        <Flex mt="7rem" wrap="wrap">
           {data.map((post) => (
-            <PostCard key={post.id} post={post} width="31%" />
+            <PostCard key={post.id} post={post} width="33%" />
           ))}
         </Flex>
         <HStack spacing="2rem" justify="center">

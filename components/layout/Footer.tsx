@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react'
 import { FOOTER_COLS, SOCIALS } from '../../config/routes'
 
-import NextLink from 'next/link'
 import React from 'react'
 
 export const Footer: React.FC = () => {
@@ -34,7 +33,7 @@ export const Footer: React.FC = () => {
             <HStack mt="1rem" spacing="3.2rem" justify="center">
               {SOCIALS.map((item, i) => (
                 <a target="blank" key={i} href={item.url}>
-                  <Image w="2.5rem" src={`/icons/${item.icon}-white.svg`} />
+                  <Image w="2.5rem" src={`/icons/${item.icon}-${'white.svg'}`} />
                 </a>
               ))}
             </HStack>
@@ -66,11 +65,9 @@ const FooterCol: (props: FooterColProps) => JSX.Element = ({ heading, links }) =
       <Heading fontSize="1.8rem">{heading}</Heading>
       <VStack mt="4rem" align="flex-start" spacing="2rem">
         {links.map((item, i) => (
-          <NextLink href={item.url} key={i}>
-            <Link fontSize="1.3rem" opacity="0.75">
-              {item.title}
-            </Link>
-          </NextLink>
+          <Link href={item.url} target="blank" fontSize="1.3rem" opacity="0.75" key={i}>
+            {item.title}
+          </Link>
         ))}
       </VStack>
     </Box>
@@ -94,9 +91,9 @@ const MobileFooter = () => {
             <AccordionPanel pb={4}>
               <VStack spacing="2rem" align="flex-start">
                 {item.links.map((link, i) => (
-                  <NextLink href={link.url} key={i}>
-                    <Link opacity="0.75">{link.title}</Link>
-                  </NextLink>
+                  <Link href={link.url} key={i} target="blank" opacity="0.75">
+                    {link.title}
+                  </Link>
                 ))}
               </VStack>
             </AccordionPanel>
