@@ -161,18 +161,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   }
 
-  const relatedArticles = await getPosts([`tag:${post.primary_tag?.slug}`], 3)
+  const relatedArticlesData = await getPosts(1, post.primary_tag?.slug, 3)
 
   return {
-    props: { post, relatedArticles, navigation }
+    props: { post, relatedArticles: relatedArticlesData.posts, navigation }
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // @ts-ignore
-  const posts = (await getPosts()) as TPost[]
+  const { posts } = await getPosts(1)
 
-  const paths = posts.map((post) => ({
+  const paths = posts.map((post: TPost) => ({
     params: { slug: post.slug }
   }))
 

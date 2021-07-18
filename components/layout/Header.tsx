@@ -10,6 +10,7 @@ import {
   useBoolean
 } from '@chakra-ui/react'
 
+import { AnimatePresence } from 'framer-motion'
 import { Menu } from './Menu'
 import { MobileMenu } from './MobileMenu'
 import NextLink from 'next/link'
@@ -43,7 +44,9 @@ export const Header = ({ navigation }: Props) => {
             src="/icons/ham.svg"
             onClick={setMobileMenu.on}
           />
-          {mobileMenu && <MobileMenu navigation={navigation} close={setMobileMenu.off} />}
+          <AnimatePresence>
+            {mobileMenu && <MobileMenu navigation={navigation} close={setMobileMenu.off} />}
+          </AnimatePresence>
         </Flex>
       </Container>
       <Box

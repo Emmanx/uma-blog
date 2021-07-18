@@ -1,16 +1,10 @@
-import { SettingsResponse } from '@tryghost/content-api'
-import { api } from '../config/ghost'
+import { instance } from '../config/axios'
 
 export const getNavigation = async () => {
-  let settings = await api.settings
-    .browse({
-      limit: 'all'
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-
-  settings = settings as SettingsResponse
-
-  return settings.navigation
+  try {
+    const { data } = await instance(`/settings/?key=${process.env.NEXT_PUBLIC_GHOST_KEY}`)
+    return data.settings.navigation
+  } catch (error) {
+    console.log(error.response.data.errors)
+  }
 }

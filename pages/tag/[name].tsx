@@ -18,8 +18,6 @@ type Props = {
 }
 
 const Home = ({ tag, posts, navigation, pagination }: Props) => {
-  console.log(tag)
-
   const {
     data,
     loading,

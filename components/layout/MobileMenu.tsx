@@ -1,8 +1,9 @@
-import { Box, Flex, HStack, Image, Input, Link, VStack } from '@chakra-ui/react'
+import { Flex, HStack, Image, Input, Link, VStack } from '@chakra-ui/react'
 
 import NextLink from 'next/link'
 import React from 'react'
 import { TNavigation } from '../../types/layout'
+import { motion } from 'framer-motion'
 
 type Props = {
   close: () => void
@@ -11,7 +12,28 @@ type Props = {
 
 export const MobileMenu = ({ close, navigation }: Props) => {
   return (
-    <Box w="100%" h="100vh" pos="fixed" top="0" left="0" bg="#fff" px="3rem" py="5rem">
+    <motion.div
+      initial={{
+        x: '100%'
+      }}
+      animate={{
+        x: '0'
+      }}
+      exit={{
+        x: '100%'
+      }}
+      transition={{
+        duration: 1
+      }}
+      style={{
+        width: '100%',
+        height: '100vh',
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        background: '#fff',
+        padding: '5rem 3rem'
+      }}>
       <Flex justify="flex-end">
         <Image w="8rem" src="/icons/ham-close.svg" onClick={close} />
       </Flex>
@@ -38,6 +60,6 @@ export const MobileMenu = ({ close, navigation }: Props) => {
           </NextLink>
         ))}
       </VStack>
-    </Box>
+    </motion.div>
   )
 }

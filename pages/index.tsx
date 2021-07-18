@@ -28,8 +28,6 @@ const Home = ({ posts, navigation, pagination }: Props) => {
     goToPrevPage
   } = usePagination(posts, pagination)
 
-  console.log(data)
-
   const firstPost = data[0]
   const secondRow = data.slice(1, 3)
   const thirdRow = data.slice(3)
