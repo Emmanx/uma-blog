@@ -1,22 +1,25 @@
 import { Box, Button, Flex, HStack, Heading, Text } from '@chakra-ui/react'
 import { ContentWrapper, Footer, Header, PostCard, PostCardWide } from '../components/layout'
 import { TPagination, TPost } from '../types/post'
+import { getAllPosts, getPosts } from '../queries/post'
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { TNavigation } from '../types/layout'
 import { getNavigation } from '../queries/layout'
-import { getPosts } from '../queries/post'
 import { usePagination } from '../hooks/usePagination'
 
 type Props = {
+  allPosts: TPost[]
   posts: TPost[]
   navigation: TNavigation[]
   pagination: TPagination
 }
 
-const Home = ({ posts, navigation, pagination }: Props) => {
+const Home = ({ allPosts, posts, navigation, pagination }: Props) => {
+  console.log(allPosts)
+
   const {
     data,
     loading,
@@ -95,6 +98,7 @@ const Home = ({ posts, navigation, pagination }: Props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
+  const allPosts = await getAllPosts()
   const data = await getPosts(1)
   const navigation = await getNavigation()
 
@@ -105,6 +109,11 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   return {
-    props: { posts: data.posts, pagination: data.meta.pagination, navigation }
+    props: {
+      allPosts: allPosts.posts,
+      posts: data.posts,
+      pagination: data.meta.pagination,
+      navigation
+    }
   }
 }
