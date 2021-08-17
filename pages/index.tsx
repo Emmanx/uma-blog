@@ -1,13 +1,13 @@
 import { Box, Button, Flex, HStack, Heading, Text } from '@chakra-ui/react'
 import { ContentWrapper, Footer, Header, PostCard, PostCardWide } from '../components/layout'
 import { TPagination, TPost } from '../types/post'
-import { getAllPosts, getPosts } from '../queries/post'
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
 import { TNavigation } from '../types/layout'
 import { getNavigation } from '../queries/layout'
+import { getPosts } from '../queries/post'
 import { usePagination } from '../hooks/usePagination'
 
 type Props = {
@@ -17,9 +17,7 @@ type Props = {
   pagination: TPagination
 }
 
-const Home = ({ allPosts, posts, navigation, pagination }: Props) => {
-  console.log(allPosts)
-
+const Home = ({ posts, navigation, pagination }: Props) => {
   const {
     data,
     loading,
@@ -46,14 +44,13 @@ const Home = ({ allPosts, posts, navigation, pagination }: Props) => {
       <Flex w="100%" justify="center" pt="9rem" pb="8rem">
         <Box textAlign="center">
           <Heading as="h1" fontSize={{ base: '2.8rem', md: '3.6rem' }} fontWeight="400">
-            Everything Super
             <Text as="span" color="brand.red">
               UMA
             </Text>
-            n
+            Blog
           </Heading>
           <Text fontSize="1.6rem" color="#425466" mt="1rem" maxW="55.5rem">
-            Where the SuperUMA community shares long form articles, thoughts, and ideas.
+            Get the latest updates on everything going on in the UMA space.
           </Text>
         </Box>
       </Flex>
@@ -98,7 +95,6 @@ const Home = ({ allPosts, posts, navigation, pagination }: Props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = await getAllPosts()
   const data = await getPosts(1)
   const navigation = await getNavigation()
 
@@ -110,7 +106,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      allPosts: allPosts.posts,
       posts: data.posts,
       pagination: data.meta.pagination,
       navigation
