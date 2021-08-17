@@ -11,7 +11,6 @@ import { getPosts } from '../queries/post'
 import { usePagination } from '../hooks/usePagination'
 
 type Props = {
-  allPosts: TPost[]
   posts: TPost[]
   navigation: TNavigation[]
   pagination: TPagination
