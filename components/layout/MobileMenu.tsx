@@ -1,7 +1,8 @@
-import { Flex, HStack, Image, Input, Link, VStack } from '@chakra-ui/react'
+import { Flex, HStack, Image, Link, VStack } from '@chakra-ui/react'
 
 import NextLink from 'next/link'
 import React from 'react'
+import { Search } from './Search'
 import { TNavigation } from '../../types/layout'
 import { motion } from 'framer-motion'
 
@@ -38,17 +39,7 @@ export const MobileMenu = ({ close, navigation }: Props) => {
         <Image w="8rem" src="/icons/ham-close.svg" onClick={close} />
       </Flex>
       <HStack mt="3.5rem">
-        <Image src="/icons/search.svg" />
-        <Input
-          placeholder="Search blog..."
-          fontSize="1.4rem"
-          color="#718096"
-          h="4rem"
-          border="none"
-          _focus={{
-            border: 'none'
-          }}
-        />
+        <Search />
       </HStack>
       <VStack spacing="3rem" align="flex-start" mt="4.5rem">
         {navigation.map((route, i) => (

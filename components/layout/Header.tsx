@@ -1,20 +1,11 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  HStack,
-  Image,
-  Input,
-  Text,
-  useBoolean
-} from '@chakra-ui/react'
+import { Box, Button, Container, Flex, HStack, Image, Text, useBoolean } from '@chakra-ui/react'
 
 import { AnimatePresence } from 'framer-motion'
 import { Menu } from './Menu'
 import { MobileMenu } from './MobileMenu'
 import NextLink from 'next/link'
 import React from 'react'
+import { Search } from './Search'
 import { Social } from './Social'
 import { TNavigation } from '../../types/layout'
 
@@ -64,20 +55,7 @@ export const Header = ({ navigation }: Props) => {
               <Image src="/icons/chevron-right.svg" />
             </HStack>
             <Menu navigation={navigation} />
-            <HStack spacing="2rem">
-              <Image w="2rem" src="/icons/search.svg" />
-              <Input
-                placeholder="Search blog..."
-                fontSize="1.4rem"
-                color="#718096"
-                w="10rem"
-                h="4rem"
-                border="none"
-                _focus={{
-                  border: 'none'
-                }}
-              />
-            </HStack>
+            <Search />
           </Flex>
         </Container>
       </Box>
