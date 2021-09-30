@@ -20,7 +20,7 @@ import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
-    <Box w="100%" bg="#000" py="5.5rem" mt="7rem">
+    <Box w="100%" bg="#5A57F2" py="5.5rem" mt="7rem">
       <Container maxW="120rem">
         <DesktopFooter />
         <MobileFooter />
