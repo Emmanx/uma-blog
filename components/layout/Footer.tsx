@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
         <MobileFooter />
         <Flex justify="center" mt="8.5rem">
           <Box textAlign="center">
-            <Image w="12.5rem" src="/images/logo.svg" mx="auto" />
+            <Image w="12.5rem" src="/images/logo-white.svg" mx="auto" />
             <Text color="#fff" opacity="0.75rem" mt="7px" fontSize="1.6rem">
               © 2020 UMA Protocol. All rights reserved.
             </Text>
