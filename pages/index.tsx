@@ -43,13 +43,14 @@ const Home = ({ posts, navigation, pagination }: Props) => {
       <Flex w="100%" justify="center" pt="9rem" pb="8rem">
         <Box textAlign="center">
           <Heading as="h1" fontSize={{ base: '2.8rem', md: '3.6rem' }} fontWeight="400">
+            Everything Super
             <Text as="span" color="brand.red">
               UMA
             </Text>
-            Blog
+            n
           </Heading>
           <Text fontSize="1.6rem" color="#425466" mt="1rem" maxW="55.5rem">
-            Get the latest updates on everything going on in the UMA space.
+            Where the SuperUMA community shares long form articles, thoughts, and ideas.
           </Text>
         </Box>
       </Flex>

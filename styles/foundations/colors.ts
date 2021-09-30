@@ -1,6 +1,6 @@
 const colors = {
   brand: {
-    red: '#FF4A4A'
+    red: '#5A57F2'
   }
 }
 
