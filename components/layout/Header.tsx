@@ -22,11 +22,17 @@ export const Header = ({ navigation }: Props) => {
         <Flex justify="space-between" align="center" py="5rem">
           <NextLink href="/">
             <a>
-              <Image w={{ base: '8rem', lg: '10.3rem' }} src="/images/logo.svg" />
+              <Image w={{ base: '8rem', lg: '10.3rem' }} src="/images/logo-dark.png" />
             </a>
           </NextLink>
           <Social />
-          <Button borderRadius="3.5rem" variant="outline" display={{ base: 'none', lg: 'flex' }}>
+          <Button
+            borderRadius="3.5rem"
+            variant="outline"
+            display={{ base: 'none', lg: 'flex' }}
+            as="a"
+            target="blank"
+            href="https://projects.umaproject.org">
             UMAverse
           </Button>
           <Image
@@ -47,10 +53,15 @@ export const Header = ({ navigation }: Props) => {
         py="2.5rem"
         display={{ base: 'none', lg: 'flex' }}>
         <Container>
-          <Flex justify="space-between" align="center">
+          <Flex
+            justify="space-between"
+            align="center"
+            as="a"
+            target="blank"
+            href="https://discord.gg/Ev5nTXakNJ">
             <HStack spacing="1.3rem">
               <Text color="brand.red" fontSize="1.6rem">
-                SuperUMANs
+                Become a SuperUMANs
               </Text>
               <Image src="/icons/chevron-right.svg" />
             </HStack>

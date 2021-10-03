@@ -17,7 +17,7 @@ export const SOCIALS = [
   },
   {
     icon: 'twitter',
-    url: 'https://twitter.com/umaprotocol?lang=en'
+    url: 'https://twitter.com/SuperUmans'
   },
   {
     icon: 'github',
