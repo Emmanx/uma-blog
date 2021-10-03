@@ -61,7 +61,7 @@ export const Header = ({ navigation }: Props) => {
             href="https://discord.gg/Ev5nTXakNJ">
             <HStack spacing="1.3rem">
               <Text color="brand.red" fontSize="1.6rem">
-                Become a SuperUMANs
+                Become a SuperUMAn
               </Text>
               <Image src="/icons/chevron-right.svg" />
             </HStack>
