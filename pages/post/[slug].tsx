@@ -177,7 +177,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const relatedArticlesData = await getPosts(1, post.primary_tag?.slug, 3)
 
   return {
-    revalidate: 1000,
+    revalidate: 10,
     props: { post, relatedArticles: relatedArticlesData.posts, navigation }
   }
 }
