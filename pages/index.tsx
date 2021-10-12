@@ -105,8 +105,8 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   return {
+    revalidate: 1000,
     props: {
-      revalidate: 1000,
       posts: data.posts,
       pagination: data.meta.pagination,
       navigation
