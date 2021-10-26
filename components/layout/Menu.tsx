@@ -1,6 +1,5 @@
 import { HStack, Link } from '@chakra-ui/react'
 
-import NextLink from 'next/link'
 import React from 'react'
 import { TNavigation } from '../../types/layout'
 
@@ -9,12 +8,13 @@ type Props = {
 }
 
 export const Menu = ({ navigation }: Props) => {
+  console.log(navigation)
   return (
     <HStack display={{ base: 'none', lg: 'block' }} spacing="3.2rem">
       {navigation.map((item, i) => (
-        <NextLink href={item.url} key={i}>
-          <Link fontSize="1.6rem">{item.label}</Link>
-        </NextLink>
+        <Link href={item.url} key={i} fontSize="1.6rem">
+          {item.label}
+        </Link>
       ))}
     </HStack>
   )

@@ -182,6 +182,15 @@ const HTMLWrapper = styled(Box)`
       margin-top: 1rem;
     }
   }
+
+  blockquote {
+    font-style: italic;
+    font-size: 1.5rem;
+    border-left: 2px solid #5a57f2;
+    padding-left: 2rem;
+    margin: 4rem 0;
+    line-height: 3rem;
+  }
 `
 
 const IconBox = ({ icon }: { icon: IconType }) => {

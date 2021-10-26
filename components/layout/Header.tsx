@@ -53,14 +53,14 @@ export const Header = ({ navigation }: Props) => {
         py="2.5rem"
         display={{ base: 'none', lg: 'flex' }}>
         <Container>
-          <Flex
-            justify="space-between"
-            align="center"
-            as="a"
-            target="blank"
-            href="https://discord.gg/Ev5nTXakNJ">
+          <Flex justify="space-between" align="center">
             <HStack spacing="1.3rem">
-              <Text color="brand.red" fontSize="1.6rem">
+              <Text
+                color="brand.red"
+                fontSize="1.6rem"
+                as="a"
+                target="blank"
+                href="https://discord.gg/Ev5nTXakNJ">
                 Become a SuperUMAn
               </Text>
               <Image src="/icons/chevron-right.svg" />
