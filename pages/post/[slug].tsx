@@ -50,16 +50,16 @@ const post = ({ post, navigation, relatedArticles }: Props) => {
           <Text fontSize={{ base: '1.4rem', md: '1.6rem' }} color="#425466" mt="1.2rem">
             {post.excerpt}
           </Text>
+          <Image
+            w="100%"
+            maxW="144rem"
+            mx="auto"
+            src={post.feature_image || '/images/post.png'}
+            my="5rem"
+          />
         </Container>
-        <Image
-          w="100%"
-          maxW="144rem"
-          mx="auto"
-          src={post.feature_image || '/images/post.png'}
-          my="5rem"
-        />
-        <Container maxW="82rem" mb="15rem">
-          <HTMLWrapper px="2rem">{parse(post.html)}</HTMLWrapper>
+        <Container maxW="82rem" mt="10rem" mb="15rem">
+          <HTMLWrapper>{parse(post.html)}</HTMLWrapper>
 
           <Box w="100%" h="1px" bg="#EDF2F7" my="4rem" />
 
@@ -124,8 +124,10 @@ const post = ({ post, navigation, relatedArticles }: Props) => {
 export default post
 
 const HTMLWrapper = styled(Box)`
+  overflow-x: hidden;
+
   p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #425466;
     margin-bottom: 2rem;
   }
@@ -140,6 +142,8 @@ const HTMLWrapper = styled(Box)`
   h2,
   h3 {
     font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   h1 {
@@ -152,6 +156,31 @@ const HTMLWrapper = styled(Box)`
 
   h3 {
     font-size: 2rem;
+  }
+
+  iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+    min-height: 550px;
+    margin: 0 0 7rem 0;
+  }
+
+  a {
+    color: #5a57f2;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul,
+  ol {
+    list-style-position: inside;
+
+    & li {
+      margin-top: 1rem;
+    }
   }
 `
 
