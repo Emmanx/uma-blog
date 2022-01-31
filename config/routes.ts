@@ -1,19 +1,19 @@
 export const SOCIALS = [
   {
     icon: 'doc',
-    url: 'https://docs.umaproject.org'
+    url: 'https://docs.google.com/document/d/14uWrupaMGi5JMDphwNI_IeT_TmwcchG2fDCidSqHZL0'
   },
-  {
-    icon: 'youtube',
-    url: 'https://www.youtube.com/channel/UC-3qS7FXxCd7gBMLttmTirw'
-  },
+  // {
+  //   icon: 'youtube',
+  //   url: 'https://www.youtube.com/channel/UC-3qS7FXxCd7gBMLttmTirw'
+  // },
   {
     icon: 'discord',
-    url: 'https://discord.gg/U8yHGPBfFH'
+    url: 'https://discord.gg/dQQg2ZXnDd'
   },
   {
     icon: 'discuss',
-    url: 'https://discourse.umaproject.org'
+    url: 'https://discourse.superumans.xyz'
   },
   {
     icon: 'twitter',
@@ -24,7 +24,6 @@ export const SOCIALS = [
     url: 'https://github.com/umaprotocol'
   }
 ]
-
 export const FOOTER_COLS = [
   {
     heading: 'Understanding UMA',

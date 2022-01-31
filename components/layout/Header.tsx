@@ -60,7 +60,7 @@ export const Header = ({ navigation }: Props) => {
                 fontSize="1.6rem"
                 as="a"
                 target="blank"
-                href="https://discord.gg/Ev5nTXakNJ">
+                href="https://discord.gg/dQQg2ZXnDd">
                 Become a SuperUMAn
               </Text>
               <Image src="/icons/chevron-right.svg" />
